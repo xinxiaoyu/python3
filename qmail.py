@@ -1,7 +1,10 @@
 import smtplib
 from email.message import EmailMessage
 
-def send_mail(from_addr,password,to_addr,subject='test',content='test mail!'):
+
+def send_mail(from_addr='', password='', \
+              to_addr='', subject='', \
+              content=''):
     msg = EmailMessage()
     msg['Subject'] = '%s' % subject
     msg['From'] = '%s' % from_addr
@@ -16,5 +19,6 @@ def send_mail(from_addr,password,to_addr,subject='test',content='test mail!'):
     s.send_message(msg)
     s.quit()
 
+    
 if __name__ == '__mail__':
     send_mail()
