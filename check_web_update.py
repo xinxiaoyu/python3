@@ -1,8 +1,7 @@
 """python3"""
-
 import hashlib
-import time
-
+import os
+from shutil import copyfile
 from qmail import send_mail
 
 
@@ -10,33 +9,24 @@ def download_index():
     import urllib.request
     index = urllib.request.urlopen('http://www.yinwang.org')
     content = index.read()
-    filename = open('/tmp/index.html', 'wb')
+    filename = open('index.html2', 'wb')
     filename.write(content)
     filename.close()
 
-
-def html1():
-    global html1
-    html1 = hashlib.md5(open('/tmp/index.html', 'rb').read()).hexdigest()
-
-
-def html2():
-    global html2
-    html2 = hashlib.md5(open('/tmp/index.html', 'rb').read()).hexdigest()
+    if not os.path.exists('index.html'):
+        copyfile('index.html2', 'index.html')
 
 
 def diff_md5():
+    html1 = hashlib.md5(open('index.html', 'rb').read()).hexdigest()
+    html2 = hashlib.md5(open('index.html2', 'rb').read()).hexdigest()
     if html1 == html2:
         pass
     else:
         send_mail('1248247511@qq.com', '', '1248247511@qq.com', subject="yingwang.org has update")
 
 
-download_index()
-html1()
-
-while True:
-    time.sleep(60)
+if __name__ == '__main__':
     download_index()
-    html2()
     diff_md5()
+    copyfile('index.html2', 'index.html')
