@@ -10,6 +10,34 @@ print(str(date.today()-timedelta(days=1)))
 print(str(date.today()))
 
 
+2222222222222222222222222222222222222222
+time_now = int(time.time())
+second_time = time_now - 310
+
+begin_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(second_time))
+end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time_now))
+222222222222222222222222222222222222222
+
+#######################################1111111111111111
+yea = int(time.strftime("%Y"))
+mon = int(time.strftime("%m"))
+day = int(time.strftime("%d"))
+hou = int(time.strftime("%H"))
+minu = int(time.strftime("%M"))
+sec = int(time.strftime("%S"))
+
+print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
+
+
+print(datetime(yea, mon, day, hou, minu, sec).isoformat(' '))
+#############################################11111111111111111111
+
+
+###python3.9语法
+end_time = datetime.fromisoformat(time.strftime("%Y-%m-%d %H:%M:%S"))
+start_time = end_time - timedelta(seconds=310)
+
+
 ###############################################3
 2021-04-09 14:34:06
 2021-04-09 14:34:06
