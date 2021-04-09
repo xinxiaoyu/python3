@@ -1,0 +1,17 @@
+import time
+from datetime import date, timedelta
+
+print(time.strftime("%Y-%m-%d %H:%M:%S"))
+
+print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
+
+print(str(date.today()-timedelta(days=1)))
+
+print(str(date.today()))
+
+
+###############################################3
+2021-04-09 14:34:06
+2021-04-09 14:34:06
+2021-04-08
+2021-04-09
